@@ -2,7 +2,7 @@ import 'package:double_v_partners_prueba_tecnica/feature/user/user.dart';
 import 'package:hive/hive.dart';
 
 class UserRepository {
-  final Box<UserModel> _userBox = Hive.box<UserModel>('users');
+  final Box<UserModel> _userBox = Hive.box<UserModel>('usersBox');
 
   List<User> getUsers() {
     final userModels = _userBox.values.toList();

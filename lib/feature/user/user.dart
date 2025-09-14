@@ -1,0 +1,11 @@
+export './domain/user.dart';
+export './domain/address.dart';
+export './presentation/provider.dart';
+export './data/model/user_model.dart';
+export './data/model/address_model.dart';
+export './data/repository/user_repository.dart';
+export './data/mapper/user_mapper.dart';
+export './data/mapper/address_mapper.dart';
+export './presentation/user_form_page.dart';
+export './presentation/user_list_page.dart';
+export './presentation/user_detail_page.dart';
