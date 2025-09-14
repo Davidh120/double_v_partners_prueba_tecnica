@@ -1,4 +1,4 @@
-import 'package:double_v_partners_prueba_tecnica/feature/user/domain/address.dart';
+import 'package:double_v_partners_prueba_tecnica/feature/user/user.dart';
 
 class User {
   final String firstName;
