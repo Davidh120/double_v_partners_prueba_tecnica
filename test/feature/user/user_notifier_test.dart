@@ -3,13 +3,13 @@ import 'package:double_v_partners_prueba_tecnica/feature/user/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FakeUserRepository implements UserRepository {
-  final List<UserModel> _users = [];
+  final List<User> _users = [];
 
   @override
-  List<UserModel> getUsers() => _users;
+  List<User> getUsers() => _users;
 
   @override
-  void addUser(UserModel user) => _users.add(user);
+  void addUser(User user) => _users.add(user);
 
   @override
   void deleteUser(int index) => _users.removeAt(index);
@@ -23,13 +23,21 @@ void main() {
 
     final notifier = container.read(userNotifierProvider.notifier);
 
-    notifier.addUser(UserModel(
+    notifier.addUser(
+      User(
         firstName: 'David',
         lastName: 'Heredia',
         birthDate: DateTime.parse('2002-03-12'),
         addresses: [
-          AddressModel(address: 'Calle 1', city: 'Bogota', country: 'Colombia', department: 'Cundinamarca')
-        ]));
+          Address(
+            address: 'Calle 1',
+            city: 'Bogota',
+            country: 'Colombia',
+            department: 'Cundinamarca',
+          )
+        ],
+      ),
+    );
 
     final users = container.read(userNotifierProvider);
 
@@ -44,20 +52,37 @@ void main() {
 
     final notifier = container.read(userNotifierProvider.notifier);
 
-    notifier.addUser(UserModel(
+    notifier.addUser(
+      User(
         firstName: 'David',
         lastName: 'Heredia',
         birthDate: DateTime.parse('2002-03-12'),
         addresses: [
-          AddressModel(address: 'Calle 1', city: 'Bogota', country: 'Colombia', department: 'Cundinamarca')
-        ]));
-    notifier.addUser(UserModel(
+          Address(
+            address: 'Calle 1',
+            city: 'Bogota',
+            country: 'Colombia',
+            department: 'Cundinamarca',
+          )
+        ],
+      ),
+    );
+
+    notifier.addUser(
+      User(
         firstName: 'Antonio',
         lastName: 'Alvarez',
         birthDate: DateTime.parse('2002-03-12'),
         addresses: [
-          AddressModel(address: 'Calle 1', city: 'Bogota', country: 'Colombia', department: 'Cundinamarca')
-        ]));
+          Address(
+            address: 'Calle 1',
+            city: 'Bogota',
+            country: 'Colombia',
+            department: 'Cundinamarca',
+          )
+        ],
+      ),
+    );
 
     notifier.deleteUser(0);
 

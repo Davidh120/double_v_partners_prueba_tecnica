@@ -5,12 +5,12 @@ final userRepositoryProvider = Provider<UserRepository>((ref) {
   return UserRepository();
 });
 
-final userNotifierProvider = StateNotifierProvider<UserNotifier, AsyncValue<List<UserModel>>>((ref) {
+final userNotifierProvider = StateNotifierProvider<UserNotifier, AsyncValue<List<User>>>((ref) {
   return UserNotifier(ref.read(userRepositoryProvider));
 });
 
 
-class UserNotifier extends StateNotifier<AsyncValue<List<UserModel>>> {
+class UserNotifier extends StateNotifier<AsyncValue<List<User>>> {
   final UserRepository repository;
 
   UserNotifier(this.repository) : super(const AsyncValue.loading()) {
@@ -26,7 +26,7 @@ class UserNotifier extends StateNotifier<AsyncValue<List<UserModel>>> {
     }
   }
 
-  Future<void> addUser(UserModel user) async {
+  Future<void> addUser(User user) async {
     repository.addUser(user);
     _loadUsers();
   }
